@@ -1,4 +1,4 @@
-import React ,{useState}from 'react'
+import React ,{useState,useContext}from 'react'
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import {BrowserRouter as Router , Route , Link, Switch} from 'react-router-dom'
@@ -8,14 +8,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHospital, faAddressCard} from '@fortawesome/free-regular-svg-icons'
 import { faUserGraduate } from '@fortawesome/free-solid-svg-icons';
 import Register from '../Register/Register';
-import { UserProvider } from '../Context';
+import UserContext, { UserProvider } from '../Context';
 
-
-export default function SideNavComp() {
+export default function SideNavComp(props) {
     const style={background:"black",position:"sticky",width:"30px",height:"100%"}
-
-      const [buttonPopup,setButtonPopup] = useState(false);
-    
+     const setIsContainer = props.setIsContainer
+   
     
     return (
         <Router>
@@ -56,7 +54,7 @@ export default function SideNavComp() {
         <NavIcon>
         <FontAwesomeIcon icon={faUserGraduate} />
         </NavIcon>
-        <NavText onClick={()=> setButtonPopup(true)}>
+        <NavText onClick={()=>setIsContainer(false)}>
         About Me
         </NavText>
         </NavItem>

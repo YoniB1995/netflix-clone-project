@@ -8,9 +8,9 @@ const PageBody = styled.div`
 display:flex;
 justify-content: center;
 align-items: center;
-height:50vh;
+height:100vh;
 width:100vw;
-padding-bottom:50px;
+
 `
 
 function Register(){ 

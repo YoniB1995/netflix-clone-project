@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import { faInstagram , faFacebook , faLinkedin , faGithub  } from '@fortawesome/free-brands-svg-icons'
+import { faCoffee,faPhone , faMailBulk } from '@fortawesome/free-solid-svg-icons'
+import { faInstagram , faFacebook , faLinkedin , faGithub } from '@fortawesome/free-brands-svg-icons'
+import { Button } from 'semantic-ui-react'
 
 const FooterBody = styled.div` 
 display:flex;
@@ -17,6 +18,21 @@ background: linear-gradient(0deg, rgba(52,50,50,1) 70%, rgba(106,106,106,0) 92%,
    cursor:pointer;
    border-radius: 50%;
    background:grey;
+}
+
+.RightSide {
+    display:flex;
+    justify-content: center;
+    flex-direction:column;
+}
+`
+const DetailsSpan = styled.span` 
+
+:hover{
+    cursor:pointer;
+    color:white;
+    transition: 1s ease-in-out;
+    
 }
 `
 
@@ -36,7 +52,7 @@ export default function Footer() {
     return (
         <>
         <FooterBody>
-            <div className="leftSide">Contact Me
+            <div className="leftSide"> <a href="https://yonib1995.github.io/yonib_website_profile/" type="_blank"><Button>My Website</Button></a>
             </div>
             <div className="Center">
                 
@@ -45,7 +61,11 @@ export default function Footer() {
                 <IconsAlign><FontAwesomeIcon icon={faFacebook} style={IconStyle} className="iconThree"/>
                 <FontAwesomeIcon icon={faGithub} style={IconStyle} className="iconFour"/></IconsAlign>
             </div>
-            <div className="RightSide">Contact Me</div>
+            <div className="RightSide">
+                 <IconsAlign><FontAwesomeIcon icon={faMailBulk} style={IconStyle} /><DetailsSpan>yonatansamfisher@gmail.com</DetailsSpan></IconsAlign>
+                 <IconsAlign><FontAwesomeIcon icon={faPhone} style={IconStyle} /><DetailsSpan>0538276526</DetailsSpan></IconsAlign>
+                 
+                 </div>
         </FooterBody>
         <FooterBottom>
             © 2021 by Yoni_B, Inc.
