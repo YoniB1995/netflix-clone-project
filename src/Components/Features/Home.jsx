@@ -8,7 +8,8 @@ import {IconStyle,IconsAlign} from './Footer/Footer'
 
 const BodyHome = styled.div` 
 color:black;
-height:50vh;;
+position:absolute;
+height:10vh;;
 width:100vw;
 display:flex;
 justify-content:center;
@@ -16,16 +17,15 @@ align-items: center;
 flex-direction:column;
 `
 
-export default function Home() {
+export default function Home(props) {
     const iconStyle = {fontSize:"40px",marginRight:"5px"}
     const profileStyle ={height:"150px",borderRadius:"30px",position:"relative",left:"35%",boxShadow:"2px 3px 6px #0000006c"}
-
     const [buttonPopup,setButtonPopup] = useState(false);
     const profileImg = <img src="images/fixedProfile.jpg" alt="profileImg" style={profileStyle} />
+    
     return (
         <BodyHome>
-            <h1>Home</h1>
-            <button onClick={()=> setButtonPopup(true)}>Open PopUp</button>
+            <button onClick={()=> setButtonPopup(true)}>About Me :)</button>
             <Popup trigger={buttonPopup} setTrigger={setButtonPopup}> 
             <h3>About Me</h3> 
             <h1>Yoni Bitew</h1>

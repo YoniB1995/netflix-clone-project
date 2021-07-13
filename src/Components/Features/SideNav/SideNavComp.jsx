@@ -14,8 +14,9 @@ import { UserProvider } from '../Context';
 export default function SideNavComp() {
     const style={background:"black",position:"sticky",width:"30px",height:"100%"}
 
-    const [buttonPopup,setButtonPopup] = useState(false);
-
+      const [buttonPopup,setButtonPopup] = useState(false);
+    
+    
     return (
         <Router>
     <Route render={({ location, history }) => (
@@ -55,7 +56,7 @@ export default function SideNavComp() {
         <NavIcon>
         <FontAwesomeIcon icon={faUserGraduate} />
         </NavIcon>
-        <NavText>
+        <NavText onClick={()=> setButtonPopup(true)}>
         About Me
         </NavText>
         </NavItem>
@@ -70,12 +71,10 @@ export default function SideNavComp() {
         </SideNav.Nav>
         </SideNav>
             <main>
-                <UserProvider value={buttonPopup,setButtonPopup}>
                 <Route exact path="/"  />
                 <Route path="/login" component={Register} />
-                <Route path="/home" component={Home} />
+                <Route path="/home"  component={Home} />
                 <Route path="/devices" component={Devices} />
-                </UserProvider>
             </main>
         </>
     )}
