@@ -13,7 +13,6 @@ import UserContext, { UserProvider } from '../Context';
 export default function SideNavComp(props) {
     const style={background:"black",position:"sticky",width:"30px",height:"100%"}
      const setIsContainer = props.setIsContainer
-   
     
     return (
         <Router>
@@ -42,19 +41,11 @@ export default function SideNavComp(props) {
         Register / Log In
         </NavText>
         </NavItem>
-        <NavItem eventKey="mainPage">
-        <NavIcon>
-        <FontAwesomeIcon icon={faHospital} />
-        </NavIcon>
-        <NavText>
-        Main Page
-        </NavText>
-        </NavItem>
         <NavItem eventKey="home">
         <NavIcon>
         <FontAwesomeIcon icon={faUserGraduate} />
         </NavIcon>
-        <NavText onClick={()=>setIsContainer(false)}>
+        <NavText>
         About Me
         </NavText>
         </NavItem>
