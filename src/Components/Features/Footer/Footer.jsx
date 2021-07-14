@@ -1,9 +1,11 @@
-import React from 'react'
+import React , {useState} from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee,faPhone , faMailBulk } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram , faFacebook , faLinkedin , faGithub } from '@fortawesome/free-brands-svg-icons'
 import { Button } from 'semantic-ui-react'
+import Popup from '../../Popup/Popup'
+import {iconStyle,profileStyle} from '../Home'
 
 const FooterBody = styled.div` 
 display:flex;
@@ -47,12 +49,26 @@ justify-content: center;
  export  const IconStyle = {fontSize:"30px",margin:"10px",color:"white"}
 
 export default function Footer() {
-   
-   
+    const [buttonPopup,setButtonPopup] = useState(false);
+    const profileImg = <img src="images/fixedProfile.jpg" alt="profileImg" style={profileStyle} />
     return (
         <>
         <FooterBody>
-            <div className="leftSide"> <a href="https://yonib1995.github.io/yonib_website_profile/" type="_blank"><Button>My Website</Button></a>
+            <div className="leftSide"> <a href="https://yonib1995.github.io/yonib_website_profile/" target="_blank"><Button>My Website</Button></a>
+            <Button onClick={()=> setButtonPopup(true)}>About Me :)</Button>
+            <Popup trigger={buttonPopup} setTrigger={setButtonPopup}> 
+            <h3>About Me</h3> 
+            <h1>Yoni Bitew</h1>
+            <p>Born and raised in Hadera. Earned a Matriculation Certificate with degrees in Geography and Oral LAW.
+Joined the Army in 2014. Joined the "Kfir" Battle Brigade. Became an Officer Commander managing over 120 Soldiers and 20 commanders.
+In December 2020 , started a Web Develepor Program to earn a degree as a Fullstack Web Developer</p>
+<br /><p>My Website : <a href="https://yonib1995.github.io/yonib_website_profile/" target="_blank">Click Here</a> </p>
+                <FontAwesomeIcon icon={faInstagram}  className="iconOne" style={iconStyle}/>
+                <FontAwesomeIcon icon={faLinkedin}  className="iconTwo" style={iconStyle}/>
+                <FontAwesomeIcon icon={faFacebook}  className="iconThree" style={iconStyle}/>
+                <FontAwesomeIcon icon={faGithub}  className="iconFour" style={iconStyle}/>
+            {profileImg}
+            </Popup>
             </div>
             <div className="Center">
                 

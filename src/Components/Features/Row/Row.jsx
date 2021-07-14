@@ -36,9 +36,10 @@ margin-left:80px;
   -webkit-box-shadow: inset 0 0 6px #2c2b2b7f; 
 }
 `
- const CheckVideo = styled.button` 
-
- `
+//  const MovieDescBody = styled.div` 
+//  display:flex;
+//  flex-direction: column-reverse;
+//  `
 
  const ModelBody = styled.div` 
   display: none; 
@@ -54,6 +55,7 @@ margin-left:80px;
  `
  const ModelContent = styled.div` 
  background-color: #fefefe;
+ color:black;
   margin: 15% auto; 
   padding: 20px;
   border: 1px solid #888;
@@ -71,11 +73,15 @@ margin-left:80px;
   cursor: pointer;
   }
  `
-
+const MovieDesc = styled.p` 
+border:1px solid white;
+position:relative;
+`
 
 function Row({title, fetchUrl, isLargeRow}) {
   const [buttonPopup,setButtonPopup] = useState(false);
-  const ModalR = useRef();
+
+  const [newStyle,setNewStyle] = useState({display:"none"})
     const moviesUrl = "https://image.tmdb.org/t/p/original/"
     const [movies,setMovies] = useState([]);
     const showMovieDesc = () => {setButtonPopup(true) }
@@ -89,27 +95,23 @@ function Row({title, fetchUrl, isLargeRow}) {
     return (
         <Body>
            <Header>{title}</Header>
-           <Posters>{movies.map((movie)=>{
+           <Posters>{movies.map((movie,array)=>{
                return (
               <>
-             
-               <img key={movie.id} onClick={showMovieDesc} className={`row_poster ${isLargeRow && "row_posterLarge"} ` } src={`${moviesUrl}${isLargeRow? movie.poster_path : movie.backdrop_path}`} alt={movie.name}/>
-              
-              <MoviePopup trigger={buttonPopup} setTrigger={setButtonPopup}  >
-            <CheckVideo  onClick={()=>ModalR.style.display="block"}>Open Here</CheckVideo>
-              <ModelBody ref={ModalR}>
+              <button  onClick={()=>setNewStyle({display:"block"})}>Show OverView</button>
+               <img key={movie.id} onClick={showMovieDesc} onClick={()=>setNewStyle({display:"block"})} className={`row_poster ${isLargeRow && "row_posterLarge"} ` } src={`${moviesUrl}${isLargeRow? movie.poster_path : movie.backdrop_path}`} alt={movie.name}/>
+               
+              <ModelBody style={newStyle} >
               <ModelContent>
-                <CloseSpan onClick={()=> ModalR.style.display="none"}>&times</CloseSpan>
-                <p>Some text in the modal</p>
+                <CloseSpan onClick={()=> setNewStyle({display:"none"})}>exit</CloseSpan>
+                {movie.overview}
               </ModelContent>
               </ModelBody>
-            
-          </MoviePopup>
+              
               </>
               )
            })}</Posters>
 
-          
         </Body>
     )
 }

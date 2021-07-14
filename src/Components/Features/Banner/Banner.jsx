@@ -1,7 +1,8 @@
-import React ,{useState, useEffect} from 'react'
+import React ,{useState, useEffect , useContext} from 'react'
 import styled from 'styled-components'
 import requests from '../../../apiRequests'
 import { Button } from '@material-ui/core';
+import UserContext from '../Context';
 
 const Header = styled.header`
 background-size:cover; 
@@ -40,6 +41,8 @@ width:100%;
 
 function Banner({}) {
     const [movie, setMovie] = useState([]);
+
+    const setDisplayWeb = useContext(UserContext);
 
     useEffect(()=>{
       fetch(requests.fetchNetflixOriginals)

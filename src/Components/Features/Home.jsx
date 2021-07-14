@@ -16,10 +16,11 @@ justify-content:center;
 align-items: center;
 flex-direction:column;
 `
+export const iconStyle = {fontSize:"40px",marginRight:"5px"}
+export const profileStyle ={height:"150px",borderRadius:"30px",position:"relative",left:"35%",boxShadow:"2px 3px 6px #0000006c"}
+
 
 export default function Home(props) {
-    const iconStyle = {fontSize:"40px",marginRight:"5px"}
-    const profileStyle ={height:"150px",borderRadius:"30px",position:"relative",left:"35%",boxShadow:"2px 3px 6px #0000006c"}
     const [buttonPopup,setButtonPopup] = useState(false);
     const profileImg = <img src="images/fixedProfile.jpg" alt="profileImg" style={profileStyle} />
     
