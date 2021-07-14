@@ -41,7 +41,7 @@ background:white;
 `
 
 
-function Banner({search,searchHandler,movies}) {
+function Banner({search,searchHandler,movies,searchResults}) {
     const [movie, setMovie] = useState([]);
     const setDisplayWeb = useContext(UserContext);
     const InputEl = useRef();
@@ -75,6 +75,7 @@ function Banner({search,searchHandler,movies}) {
             <BannerDesc>{truncate(movie?.overview,150)}</BannerDesc>
             <BannerFade></BannerFade>
         </Header>
+        {/* <div>{searchResults?.map(result=> <p>{result}</p>)}</div> */}
         </>
     )
 }

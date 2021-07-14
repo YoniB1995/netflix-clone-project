@@ -36,31 +36,36 @@ margin-left:80px;
   -webkit-box-shadow: inset 0 0 6px #2c2b2b7f; 
 }
 `
-//  const MovieDescBody = styled.div` 
-//  display:flex;
-//  flex-direction: column-reverse;
-//  `
 
  const ModelBody = styled.div` 
-  display: none; 
+  display: flex; 
   position: fixed; 
-  z-index: 1;
-  left: 0;
-  top: 0;
+  justify-content: center;
+  align-items: center;
+  left: 0%;
+  top: 0%;
   width: 100%; 
   height: 100%; 
   overflow: auto; 
   background-color: rgb(0,0,0); 
   background-color: rgba(0,0,0,0.4); 
  `
- const ModelContent = styled.div` 
+ const ModelContent = styled.div`
+ display:flex; 
+ flex-direction:column;
+ justify-content: center;
+ align-items: center;
  background-color: #fefefe;
  color:black;
+ width:30vw;
   margin: 15% auto; 
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; 
- `
+  img{
+    position:relative;
+    left:150px;
+  }
+  `
 
  const CloseSpan = styled.span` 
  color: #aaa;
@@ -80,12 +85,12 @@ position:relative;
 
 function Row({title, fetchUrl, isLargeRow,searchHandler,simulateTrue,searchResults}) {
   const [buttonPopup,setButtonPopup] = useState(false);
-
+  const [currentMovies,setCurrentMovies] = useState({});
   const [newStyle,setNewStyle] = useState({display:"none"})
     const moviesUrl = "https://image.tmdb.org/t/p/original/"
     const [movies,setMovies] = useState([]);
     const showMovieDesc = () => {setButtonPopup(true) }
-
+    console.log(currentMovies)
     useEffect(()=>{
       fetch(fetchUrl)
       .then(response => response.json())
@@ -100,20 +105,25 @@ function Row({title, fetchUrl, isLargeRow,searchHandler,simulateTrue,searchResul
              {movies.map((movie,array)=>{
                return (
               <>
-              <button  onClick={()=>setNewStyle({display:"block"})}>Show OverView</button>
-               <img key={movie.id} onClick={showMovieDesc} onClick={()=>setNewStyle({display:"block"})} className={`row_poster ${isLargeRow && "row_posterLarge"} ` } src={`${moviesUrl}${isLargeRow? movie.poster_path : movie.backdrop_path}`} alt={movie.name}/>
-               
-              <ModelBody style={newStyle} >
-              <ModelContent>
-                <CloseSpan onClick={()=> setNewStyle({display:"none"})}>exit</CloseSpan>
-                {movie.overview}
-              </ModelContent>
-              </ModelBody>
-              
+               <img key={movie.id} onClick={showMovieDesc} 
+               onClick={()=>{
+                 setCurrentMovies(movie);
+                setNewStyle({display:"block"})}}
+                className={`row_poster ${isLargeRow && "row_posterLarge"} ` } src={`${moviesUrl}${isLargeRow? movie.poster_path : movie.backdrop_path}`} alt={movie.name}/>
+
               </>
               )
            })}</Posters>
-            <div>{searchResults}</div>
+           <ModelBody style={newStyle} >
+              <ModelContent>
+                <CloseSpan onClick={()=> setNewStyle({display:"none"})}>exit</CloseSpan>
+                <h1>{currentMovies.name}</h1>
+                <h3>Rating : {currentMovies.vote_average}</h3>
+                <p>{currentMovies.overview}</p>
+                <img src={`${moviesUrl}${currentMovies.poster_path}`} alt="poster" height="300px" width="200px" />
+              </ModelContent>
+              </ModelBody>
+            {/* <div>{searchResults}</div> */}
         </Body>
     )
 }

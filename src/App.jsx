@@ -1,4 +1,4 @@
-import React , {useState,useEffect} from 'react'
+import React , {useState,useEffect,useRef} from 'react'
 import styled from 'styled-components'
 import Banner from './Components/Features/Banner/Banner'
 import './App.css'
@@ -26,6 +26,10 @@ function App() {
   const [search,setSearch] = useState("");
   const [searchResults,setSearchResults] = useState([]);
   const [movies,setMovies] = useState({})
+  const InputEl = useRef();
+    const getSearchTerm = () => {
+        searchHandler(InputEl.current.value)
+    }
 
   useEffect(()=>{
     fetch(moviesTrending)
@@ -39,7 +43,7 @@ function App() {
         setSearch(searchTerm)
         if (searchTerm !== "") {
           const newMoviesList = movies.filter((movie)=>{
-            return (Object.values(movie).join(" ").toLowerCase().includes(searchTerm));
+            movie.title.startsWith(searchTerm)
         });
         setSearchResults(newMoviesList)
       } else {
@@ -63,8 +67,9 @@ function App() {
       {intro && <NetflixWelcome/> }
       { displayWeb &&
       <>
-      <Banner term={search} searchHandler={searchHandler} movies={movies}/>
-      {simulateTrue? <Row title="NETFLIX ORIGINALS" term={search} fetchUrl={requests.fetchNetflixOriginals} isLargeRow movies={search.length < 1 ? movies : searchResults} searchHandler={searchHandler} simulateTrue={simulateTrue}/> :
+      <Banner term={search} InputEl={InputEl} searchHandler={searchHandler} movies={movies} term={search} fetchUrl={requests.fetchNetflixOriginals} movies={searchResults} searchHandler={searchHandler} simulateTrue={simulateTrue} isLargeRow/>
+      {simulateTrue ?
+      <Row title="NETFLIX ORIGINALS" term={search} fetchUrl={requests.fetchNetflixOriginals} movies={searchResults} searchHandler={searchHandler} simulateTrue={simulateTrue} isLargeRow /> :
       <MainContainer/> }
       <Footer/>
       </>
