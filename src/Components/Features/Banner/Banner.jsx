@@ -1,7 +1,7 @@
 import React ,{useState, useEffect , useContext} from 'react'
 import styled from 'styled-components'
 import requests from '../../../apiRequests'
-import { Button } from '@material-ui/core';
+import { Button ,Input} from '@material-ui/core';
 import UserContext from '../Context';
 
 const Header = styled.header`
@@ -34,9 +34,11 @@ const BannerFade = styled.div`
 height:7.4rem;
 background-image:linear-gradient(180deg,transparent,rgba(37,37,37,0.61),#111);
 width:100%;
-
 `
 
+const InputBackground = styled.div` 
+background:white;
+`
 
 
 function Banner({}) {
@@ -63,6 +65,9 @@ function Banner({}) {
             <BannerContent>{movie?.title || movie?.name || movie?.original_name}</BannerContent>
             <span><Button variant="contained" color="primary" style={{margin:"5px"}}>Play</Button>
             <Button variant="contained" color="primary">My List</Button>
+            <InputBackground><Input type="text" color="primary" background="primary" placeholder="Search Movies" /></InputBackground>
+            
+
             </span>
             <BannerDesc>{truncate(movie?.overview,150)}</BannerDesc>
             <BannerFade></BannerFade>
