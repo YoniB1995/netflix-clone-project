@@ -78,7 +78,7 @@ border:1px solid white;
 position:relative;
 `
 
-function Row({title, fetchUrl, isLargeRow}) {
+function Row({title, fetchUrl, isLargeRow,searchHandler,simulateTrue,searchResults}) {
   const [buttonPopup,setButtonPopup] = useState(false);
 
   const [newStyle,setNewStyle] = useState({display:"none"})
@@ -95,7 +95,9 @@ function Row({title, fetchUrl, isLargeRow}) {
     return (
         <Body>
            <Header>{title}</Header>
-           <Posters>{movies.map((movie,array)=>{
+           <Posters>
+             
+             {movies.map((movie,array)=>{
                return (
               <>
               <button  onClick={()=>setNewStyle({display:"block"})}>Show OverView</button>
@@ -111,7 +113,7 @@ function Row({title, fetchUrl, isLargeRow}) {
               </>
               )
            })}</Posters>
-
+            <div>{searchResults}</div>
         </Body>
     )
 }

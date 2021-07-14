@@ -1,4 +1,4 @@
-import React ,{useState, useEffect , useContext} from 'react'
+import React ,{useState, useEffect , useContext,useRef} from 'react'
 import styled from 'styled-components'
 import requests from '../../../apiRequests'
 import { Button ,Input} from '@material-ui/core';
@@ -41,10 +41,13 @@ background:white;
 `
 
 
-function Banner({}) {
+function Banner({search,searchHandler,movies}) {
     const [movie, setMovie] = useState([]);
-
     const setDisplayWeb = useContext(UserContext);
+    const InputEl = useRef();
+    const getSearchTerm = () => {
+        searchHandler(InputEl.current.value)
+    }
 
     useEffect(()=>{
       fetch(requests.fetchNetflixOriginals)
@@ -65,7 +68,7 @@ function Banner({}) {
             <BannerContent>{movie?.title || movie?.name || movie?.original_name}</BannerContent>
             <span><Button variant="contained" color="primary" style={{margin:"5px"}}>Play</Button>
             <Button variant="contained" color="primary">My List</Button>
-            <InputBackground><Input type="text" color="primary" background="primary" placeholder="Search Movies" /></InputBackground>
+            <InputBackground><Input type="text" color="primary" background="primary" placeholder="Search Movies" value={search} onChange={getSearchTerm} ref={InputEl} /></InputBackground>
             
 
             </span>
