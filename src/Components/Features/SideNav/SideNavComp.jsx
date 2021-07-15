@@ -12,13 +12,14 @@ import UserContext, { UserProvider } from '../Context';
 
 export default function SideNavComp(props) {
     const style={background:"black",position:"sticky",width:"30px",height:"100%"}
+
      const setIsContainer = props.setIsContainer
     
     return (
         <Router>
     <Route render={({ location, history }) => (
         <>
-        <SideNav style={style}
+        <SideNav style={style} 
     onSelect={(selected) => {
     const to = '/' + selected;
         if (location.pathname !== to) {

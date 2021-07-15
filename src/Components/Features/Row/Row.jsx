@@ -2,12 +2,21 @@ import React , { useState , useEffect , useRef } from 'react'
 import styled from 'styled-components'
 import Popup from '../../Popup/Popup'
 import MoviePopup from '../../Popup/MoviePopup'
+import Rating from '@material-ui/lab/Rating';
 
 const Body = styled.div` 
 display:flex;
 justify-content:left;
 align-items: left;
 flex-direction:column;
+@media only screen and (min-width: 414px) and (max-width: 767px),
+    (min-width: 412px) and (max-width: 767px),
+    (min-width: 390px) and (max-width: 767px),
+    (min-width: 428px) and (max-width: 767px),
+    (min-width: 384px) and (max-width: 767px),
+    (min-width: 360px) and (max-width: 767px) {
+        height:50vh;
+  }
 `
 const Header = styled.h2` 
 margin-left:80px;
@@ -35,6 +44,20 @@ margin-left:80px;
   border-top-left-radius:25px;
   -webkit-box-shadow: inset 0 0 6px #2c2b2b7f; 
 }
+
+@media only screen and (min-width: 414px) and (max-width: 767px),
+    (min-width: 412px) and (max-width: 767px),
+    (min-width: 390px) and (max-width: 767px),
+    (min-width: 428px) and (max-width: 767px),
+    (min-width: 384px) and (max-width: 767px),
+    (min-width: 360px) and (max-width: 767px) {
+        height:100%;
+        img{
+         
+         
+        }
+  }
+
 `
 
  const ModelBody = styled.div` 
@@ -49,7 +72,9 @@ margin-left:80px;
   overflow: auto; 
   background-color: rgb(0,0,0); 
   background-color: rgba(0,0,0,0.4); 
- `
+  
+`
+
  const ModelContent = styled.div`
  display:flex; 
  flex-direction:column;
@@ -65,6 +90,20 @@ margin-left:80px;
     position:relative;
     left:150px;
   }
+
+  @media only screen and (min-width: 414px) and (max-width: 767px),
+    (min-width: 412px) and (max-width: 767px),
+    (min-width: 390px) and (max-width: 767px),
+    (min-width: 428px) and (max-width: 767px),
+    (min-width: 384px) and (max-width: 767px),
+    (min-width: 360px) and (max-width: 767px) {
+        width:80vw;
+        border-radius:25px;
+        box-shadow:2px 4px 2px black;
+        img{
+          left:50px;
+        }
+  }
   `
 
  const CloseSpan = styled.span` 
@@ -77,6 +116,24 @@ margin-left:80px;
   text-decoration: none;
   cursor: pointer;
   }
+
+  @media only screen and (min-width: 414px) and (max-width: 767px),
+    (min-width: 412px) and (max-width: 767px),
+    (min-width: 390px) and (max-width: 767px),
+    (min-width: 428px) and (max-width: 767px),
+    (min-width: 384px) and (max-width: 767px),
+    (min-width: 360px) and (max-width: 767px) {
+      background:black;
+      color:white;
+      box-shadow:2px 3px 2px grey;
+      font-size: 20px;
+      width:fit-content;
+        img{
+          left:50px;
+        }
+  }
+
+  
  `
 const MovieDesc = styled.p` 
 border:1px solid white;
@@ -101,7 +158,6 @@ function Row({title, fetchUrl, isLargeRow,searchHandler,simulateTrue,searchResul
         <Body>
            <Header>{title}</Header>
            <Posters>
-             
              {movies.map((movie,array)=>{
                return (
               <>
@@ -117,13 +173,14 @@ function Row({title, fetchUrl, isLargeRow,searchHandler,simulateTrue,searchResul
            <ModelBody style={newStyle} >
               <ModelContent>
                 <CloseSpan onClick={()=> setNewStyle({display:"none"})}>exit</CloseSpan>
-                <h1>{currentMovies.name}</h1>
-                <h3>Rating : {currentMovies.vote_average}</h3>
+                <h1>{currentMovies.name} <Rating name="customized-10" value={Math.round(currentMovies.vote_average)} max={10} /></h1>
+                
+                <h3>Rating :{currentMovies.vote_average}</h3>
                 <p>{currentMovies.overview}</p>
                 <img src={`${moviesUrl}${currentMovies.poster_path}`} alt="poster" height="300px" width="200px" />
               </ModelContent>
               </ModelBody>
-            {/* <div>{searchResults}</div> */}
+            <div>{searchResults}</div>
         </Body>
     )
 }

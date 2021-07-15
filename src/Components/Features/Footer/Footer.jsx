@@ -27,7 +27,19 @@ background: linear-gradient(0deg, rgba(52,50,50,1) 70%, rgba(106,106,106,0) 92%,
     justify-content: center;
     flex-direction:column;
 }
+
+@media only screen and (min-width: 414px) and (max-width: 767px),
+    (min-width: 412px) and (max-width: 767px),
+    (min-width: 390px) and (max-width: 767px),
+    (min-width: 428px) and (max-width: 767px),
+    (min-width: 384px) and (max-width: 767px),
+    (min-width: 360px) and (max-width: 767px) {
+        height:40vh;
+        flex-direction: column;
+  }
 `
+
+
 const DetailsSpan = styled.span` 
 
 :hover{

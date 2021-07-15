@@ -13,12 +13,24 @@ flex-direction:column;
 text-align:center;
 object-fit:contain;
 height:448px;
+
+@media only screen and (min-width: 414px) and (max-width: 767px),
+    (min-width: 412px) and (max-width: 767px),
+    (min-width: 390px) and (max-width: 767px),
+    (min-width: 428px) and (max-width: 767px),
+    (min-width: 384px) and (max-width: 767px),
+    (min-width: 360px) and (max-width: 767px) {
+
+        width:100%;
+        object-fit:none;
+  }
 `
 
 const BannerContent = styled.div` 
 font-size:40px;
 font-weight:800;
 padding-bottom:0.3rem;
+line-height: 70px;
 `
 
 

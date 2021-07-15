@@ -37,13 +37,13 @@ function App() {
     .then(object => setMovies(object.results))
   },[moviesTrending])
 
-  // console.log(movies)
   const searchHandler = (searchTerm) =>{
     setSimulateTrue(true);
         setSearch(searchTerm)
         if (searchTerm !== "") {
           const newMoviesList = movies.filter((movie)=>{
-            movie.title.startsWith(searchTerm)
+            movie.title.startsWith(searchTerm);
+          
         });
         setSearchResults(newMoviesList)
       } else {
@@ -69,7 +69,7 @@ function App() {
       <>
       <Banner term={search} InputEl={InputEl} searchHandler={searchHandler} movies={movies} term={search} fetchUrl={requests.fetchNetflixOriginals} movies={searchResults} searchHandler={searchHandler} simulateTrue={simulateTrue} isLargeRow/>
       {simulateTrue ?
-      <Row title="NETFLIX ORIGINALS" term={search} fetchUrl={requests.fetchNetflixOriginals} movies={searchResults} searchHandler={searchHandler} simulateTrue={simulateTrue} isLargeRow /> :
+      <Row title="NETFLIX ORIGINALS" term={search} fetchUrl={requests.fetchNetflixOriginals} searchResults={searchResults} searchHandler={searchHandler} simulateTrue={simulateTrue} isLargeRow /> :
       <MainContainer/> }
       <Footer/>
       </>

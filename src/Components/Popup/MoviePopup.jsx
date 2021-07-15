@@ -13,17 +13,6 @@ background:black;
 display:flex;
 justify-content: center;
 align-items: center;
-
-
-@media only screen and (min-width: 414px) and (max-width: 767px),
-    (min-width: 412px) and (max-width: 767px),
-    (min-width: 390px) and (max-width: 767px),
-    (min-width: 428px) and (max-width: 767px),
-    (min-width: 384px) and (max-width: 767px),
-    (min-width: 360px) and (max-width: 767px) {
-    height:100%;
-    
-  }
 `
 
 const InsidePop = styled.div` 
@@ -39,16 +28,17 @@ button{
     top:16px;
     right:16px;
 }
-
-
 `
 
-export default function Popup(props) {
+export default function MoviePopup(props) {
+    const movies = props.movies;
     return (props.trigger) ? (
         <PopupBody>
             <InsidePop>
                 <Button className="close-btn" onClick={()=> props.setTrigger(false)}>Close</Button>
                 {props.children}
+               
+
             </InsidePop>
             
         </PopupBody>) : "";
