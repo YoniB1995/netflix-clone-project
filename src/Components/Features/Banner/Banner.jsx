@@ -31,6 +31,7 @@ font-size:40px;
 font-weight:800;
 padding-bottom:0.3rem;
 line-height: 70px;
+
 `
 
 
@@ -58,7 +59,8 @@ function Banner({search,searchHandler,movies,searchResults}) {
     const setDisplayWeb = useContext(UserContext);
     const InputEl = useRef();
     const getSearchTerm = () => {
-        searchHandler(InputEl.current.value)
+        
+        // searchHandler(InputEl.current.value)
     }
 
     useEffect(()=>{
@@ -78,9 +80,9 @@ function Banner({search,searchHandler,movies,searchResults}) {
             backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`
         }}>
             <BannerContent>{movie?.title || movie?.name || movie?.original_name}</BannerContent>
-            <span><Button variant="contained" color="primary" style={{margin:"5px"}}>Play</Button>
-            <Button variant="contained" color="primary">My List</Button>
-            <InputBackground><Input type="text" color="primary" background="primary" placeholder="Search Movies" value={search} onChange={getSearchTerm} ref={InputEl} /></InputBackground>
+            <span><Button variant="contained" color="secondary" style={{margin:"5px"}}>Play</Button>
+            <Button variant="contained" color="secondary">My List</Button>
+            
             
 
             </span>

@@ -13,7 +13,7 @@ align-items: center;
 export default function NetflixIntro() {
     return (
         <LoaderBody>
-            <img src="images/netflix_loader_gif.gif" alt="netflix"  />
+            <img src="images/netflix_loader_gif.gif" alt="netflix"  className="animate__animated animate__slideInDown"></img>
         </LoaderBody>
     )
 }

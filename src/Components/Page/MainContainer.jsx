@@ -6,12 +6,11 @@ import UserContext, { UserProvider } from '../Features/Context';
 
 function MainContainer() {
 
-  const [IsContainer,setIsContainer ]= useState(true);
+  // const [IsContainer,setIsContainer ]= useState(true);
 
     return (
         <>
-      <SideNavComp value={setIsContainer}/>
-      {IsContainer&& <Container/>}
+       <Container/>
         </>
     )
 }

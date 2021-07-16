@@ -1,7 +1,5 @@
 import React , { useState , useEffect , useRef } from 'react'
 import styled from 'styled-components'
-import Popup from '../../Popup/Popup'
-import MoviePopup from '../../Popup/MoviePopup'
 import Rating from '@material-ui/lab/Rating';
 
 const Body = styled.div` 
@@ -65,6 +63,7 @@ margin-left:80px;
   position: fixed; 
   justify-content: center;
   align-items: center;
+  
   left: 0%;
   top: 0%;
   width: 100%; 
@@ -76,20 +75,27 @@ margin-left:80px;
 `
 
  const ModelContent = styled.div`
+ background-color: #111;
  display:flex; 
+ border-radius:25px;
  flex-direction:column;
  justify-content: center;
  align-items: center;
- background-color: #fefefe;
- color:black;
+ color:white;
+ height:80vh;
  width:30vw;
   margin: 15% auto; 
-  padding: 20px;
   border: 1px solid #888;
   img{
-    position:relative;
-    left:150px;
+    
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
   }
+  p{
+    padding:20px;
+    padding-bottom: 50px;
+  }
+
 
   @media only screen and (min-width: 414px) and (max-width: 767px),
     (min-width: 412px) and (max-width: 767px),
@@ -108,8 +114,10 @@ margin-left:80px;
 
  const CloseSpan = styled.span` 
  color: #aaa;
-  float: right;
-  font-size: 28px;
+  top:30px;
+  border-radius: 50%;
+  position:relative;
+  font-size: 30px;
   font-weight: bold;
   :hover , :focus {
     color: black;
@@ -132,12 +140,11 @@ margin-left:80px;
           left:50px;
         }
   }
-
-  
  `
-const MovieDesc = styled.p` 
-border:1px solid white;
-position:relative;
+const BannerFade = styled.div` 
+height:2rem;
+background-image:linear-gradient(180deg,transparent,rgba(37,37,37,0.61),#111);
+width:100%;
 `
 
 function Row({title, fetchUrl, isLargeRow,searchHandler,simulateTrue,searchResults}) {
@@ -172,12 +179,14 @@ function Row({title, fetchUrl, isLargeRow,searchHandler,simulateTrue,searchResul
            })}</Posters>
            <ModelBody style={newStyle} >
               <ModelContent>
-                <CloseSpan onClick={()=> setNewStyle({display:"none"})}>exit</CloseSpan>
+                <CloseSpan onClick={()=> setNewStyle({display:"none"})}>X</CloseSpan>
+                 <img src={`${moviesUrl}${currentMovies.backdrop_path}`} alt="poster" height="300px" width="100%" />
+                 <BannerFade></BannerFade>
                 <h1>{currentMovies.name} <Rating name="customized-10" value={Math.round(currentMovies.vote_average)} max={10} /></h1>
                 
                 <h3>Rating :{currentMovies.vote_average}</h3>
                 <p>{currentMovies.overview}</p>
-                <img src={`${moviesUrl}${currentMovies.poster_path}`} alt="poster" height="300px" width="200px" />
+               
               </ModelContent>
               </ModelBody>
             <div>{searchResults}</div>

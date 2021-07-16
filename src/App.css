@@ -9,9 +9,34 @@
   color: white;
 }
 
+.row_poster_route {
+  object-fit: contain;
+  max-height: 200px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  margin-right: 30px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 2px black;
+  transition: transform 450ms;
+}
+
+.row_poster_route:hover {
+  cursor: pointer;
+  opacity: 0.5;
+  transform: scale(1.08);
+}
+
+.row_poster_routeLarge {
+  max-height: 250px;
+}
+.row_poster_routeLarge:hover {
+  transform: scale(1.09);
+}
+
 .row_poster {
   object-fit: contain;
-  max-height: 170px;
+  max-height: 130px;
+  border-radius: 5px;
   width: 100%;
   margin-right: 15px;
   border: 1px solid black;

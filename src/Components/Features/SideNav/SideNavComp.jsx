@@ -6,9 +6,10 @@ import Home from '../Home';
 import Devices from '../Devices';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHospital, faAddressCard} from '@fortawesome/free-regular-svg-icons'
-import { faUserGraduate } from '@fortawesome/free-solid-svg-icons';
+import { faUserGraduate,faGlassCheers, faMedal, faExternalLinkAlt, faRadiation, faTheaterMasks } from '@fortawesome/free-solid-svg-icons';
 import Register from '../Register/Register';
 import UserContext, { UserProvider } from '../Context';
+import { faAngellist } from '@fortawesome/free-brands-svg-icons';
 
 export default function SideNavComp(props) {
     const style={background:"black",position:"sticky",width:"30px",height:"100%"}
@@ -16,7 +17,7 @@ export default function SideNavComp(props) {
      const setIsContainer = props.setIsContainer
     
     return (
-        <Router>
+        <>
     <Route render={({ location, history }) => (
         <>
         <SideNav style={style} 
@@ -31,44 +32,63 @@ export default function SideNavComp(props) {
         <img src="images/netflix_logo.png" alt="" height="40px" width="50px" />
         </NavIcon>
         <NavText>
-        Welcome to Netflix App Clone
+        Welcome to my App
         </NavText>
         </NavItem>
-        <NavItem eventKey="login">
+        <NavItem eventKey="MainPage">
         <NavIcon>
         <img src="images/netflix_user.png" alt="" height="40px" width="50px" />
         </NavIcon>
         <NavText>
-        Register / Log In
+        Welcome , Yoni Bitew
         </NavText>
         </NavItem>
-        <NavItem eventKey="home">
+        <NavItem eventKey="netflixoriginal">
         <NavIcon>
-        <FontAwesomeIcon icon={faUserGraduate} />
+        <FontAwesomeIcon icon={faAngellist} />
         </NavIcon>
         <NavText>
-        About Me
+        Netflix Original
         </NavText>
         </NavItem>
-        <NavItem eventKey="devices">
+        <NavItem eventKey="trendingnow">
         <NavIcon>
-        <FontAwesomeIcon icon={faHospital} />
+        <FontAwesomeIcon icon={faExternalLinkAlt} />
         </NavIcon>
         <NavText>
-        Devices
+        Trending Now
+        </NavText>
+        </NavItem>
+        <NavItem eventKey="toprated">
+        <NavIcon>
+        <FontAwesomeIcon icon={faMedal} />
+        </NavIcon>
+        <NavText>
+        Top Rated
+        </NavText>
+        </NavItem>
+        <NavItem eventKey="actionmovies">
+        <NavIcon>
+        <FontAwesomeIcon icon={faRadiation} />
+        </NavIcon>
+        <NavText>
+        Action
+        </NavText>
+        </NavItem>
+        <NavItem eventKey="comedymovies">
+        <NavIcon>
+        <FontAwesomeIcon icon={faTheaterMasks} />
+        </NavIcon>
+        <NavText>
+        Comedy
         </NavText>
         </NavItem>
         </SideNav.Nav>
         </SideNav>
-            <main>
-                <Route exact path="/"  />
-                <Route path="/login" component={Register} />
-                <Route path="/home"  component={Home} />
-                <Route path="/devices" component={Devices} />
-            </main>
+            
         </>
     )}
     />
-</Router>
+</>
     )
 }
