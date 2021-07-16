@@ -22,7 +22,6 @@ height:448px;
     (min-width: 360px) and (max-width: 767px) {
 
         width:100%;
-        object-fit:none;
   }
 `
 

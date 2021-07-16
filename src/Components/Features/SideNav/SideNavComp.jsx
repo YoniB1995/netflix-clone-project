@@ -11,8 +11,10 @@ import Register from '../Register/Register';
 import UserContext, { UserProvider } from '../Context';
 import { faAngellist } from '@fortawesome/free-brands-svg-icons';
 
+
+
 export default function SideNavComp(props) {
-    const style={background:"black",position:"sticky",width:"30px",height:"100%"}
+    const style={background:"black",position:"fixed",width:"30px",height:"100%"}
 
      const setIsContainer = props.setIsContainer
     
