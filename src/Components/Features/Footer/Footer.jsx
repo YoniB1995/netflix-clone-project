@@ -147,28 +147,36 @@ export default function Footer() {
         </div>
         <div className="Center">
           <IconsAlign>
-            <FontAwesomeIcon
-              icon={faInstagram}
-              style={IconStyle}
-              className="iconOne"
-            />
-            <FontAwesomeIcon
-              icon={faLinkedin}
-              style={IconStyle}
-              className="iconTwo"
-            />
+            <a href="http://">
+              <FontAwesomeIcon
+                icon={faInstagram}
+                style={IconStyle}
+                className="iconOne"
+              />
+            </a>
+            <a href="http://">
+              <FontAwesomeIcon
+                icon={faLinkedin}
+                style={IconStyle}
+                className="iconTwo"
+              />
+            </a>
           </IconsAlign>
           <IconsAlign>
-            <FontAwesomeIcon
-              icon={faFacebook}
-              style={IconStyle}
-              className="iconThree"
-            />
-            <FontAwesomeIcon
-              icon={faGithub}
-              style={IconStyle}
-              className="iconFour"
-            />
+            <a href="http://">
+              <FontAwesomeIcon
+                icon={faFacebook}
+                style={IconStyle}
+                className="iconThree"
+              />
+            </a>
+            <a href="http://">
+              <FontAwesomeIcon
+                icon={faGithub}
+                style={IconStyle}
+                className="iconFour"
+              />
+            </a>
           </IconsAlign>
         </div>
         <div className="RightSide">
