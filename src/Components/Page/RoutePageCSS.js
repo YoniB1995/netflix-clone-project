@@ -77,14 +77,15 @@ const ModelBody = styled.div`
     padding-bottom: 50px;
   }
 
-
-  @media only screen and (min-width: 414px) and (max-width: 767px),
+ @media only screen and (min-width: 414px) and (max-width: 767px),
     (min-width: 412px) and (max-width: 767px),
     (min-width: 390px) and (max-width: 767px),
     (min-width: 428px) and (max-width: 767px),
     (min-width: 384px) and (max-width: 767px),
     (min-width: 360px) and (max-width: 767px) {
-        width:80vw;
+        position:relative;
+        width:75vw;
+        left:20px;
         border-radius:25px;
         box-shadow:2px 4px 2px black;
         img{

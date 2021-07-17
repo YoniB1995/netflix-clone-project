@@ -29,6 +29,14 @@ const BannerContent = styled.div`
   font-weight: 800;
   padding-bottom: 0.3rem;
   line-height: 70px;
+  @media only screen and (min-width: 414px) and (max-width: 767px),
+    (min-width: 412px) and (max-width: 767px),
+    (min-width: 390px) and (max-width: 767px),
+    (min-width: 428px) and (max-width: 767px),
+    (min-width: 384px) and (max-width: 767px),
+    (min-width: 360px) and (max-width: 767px) {
+    max-width: 250px;
+  }
 `;
 
 const BannerDesc = styled.h1`
@@ -38,6 +46,14 @@ const BannerDesc = styled.h1`
   font-size: 0.8rem;
   max-width: 360px;
   height: 80px;
+  @media only screen and (min-width: 414px) and (max-width: 767px),
+    (min-width: 412px) and (max-width: 767px),
+    (min-width: 390px) and (max-width: 767px),
+    (min-width: 428px) and (max-width: 767px),
+    (min-width: 384px) and (max-width: 767px),
+    (min-width: 360px) and (max-width: 767px) {
+    max-width: 250px;
+  }
 `;
 const BannerFade = styled.div`
   height: 7.4rem;
