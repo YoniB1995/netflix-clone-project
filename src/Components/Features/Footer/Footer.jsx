@@ -108,28 +108,34 @@ export default function Footer() {
             </p>
             <br />
 
-            <a href="https://www.instagram.com/yonibitew/">
+            <a href="https://www.instagram.com/yonibitew/" target="_blank">
               <FontAwesomeIcon
                 icon={faInstagram}
                 style={IconStyle}
                 className="iconOne"
               />
             </a>
-            <a href="https://www.linkedin.com/in/yoni-bitew-955b971bb/">
+            <a
+              href="https://www.linkedin.com/in/yoni-bitew-955b971bb/"
+              target="_blank"
+            >
               <FontAwesomeIcon
                 icon={faLinkedin}
                 style={IconStyle}
                 className="iconTwo"
               />
             </a>
-            <a href="https://www.facebook.com/profile.php?id=100006574396023">
+            <a
+              href="https://www.facebook.com/profile.php?id=100006574396023"
+              target="_blank"
+            >
               <FontAwesomeIcon
                 icon={faFacebook}
                 style={IconStyle}
                 className="iconThree"
               />
             </a>
-            <a href="https://github.com/YoniB1995">
+            <a href="https://github.com/YoniB1995" target="_blank">
               <FontAwesomeIcon
                 icon={faGithub}
                 style={IconStyle}
@@ -141,14 +147,17 @@ export default function Footer() {
         </div>
         <div className="Center">
           <IconsAlign>
-            <a href="https://www.instagram.com/yonibitew/">
+            <a href="https://www.instagram.com/yonibitew/" target="_blank">
               <FontAwesomeIcon
                 icon={faInstagram}
                 style={IconStyle}
                 className="iconOne"
               />
             </a>
-            <a href="https://www.linkedin.com/in/yoni-bitew-955b971bb/">
+            <a
+              href="https://www.linkedin.com/in/yoni-bitew-955b971bb/"
+              target="_blank"
+            >
               <FontAwesomeIcon
                 icon={faLinkedin}
                 style={IconStyle}
@@ -157,14 +166,17 @@ export default function Footer() {
             </a>
           </IconsAlign>
           <IconsAlign>
-            <a href="https://www.facebook.com/profile.php?id=100006574396023">
+            <a
+              href="https://www.facebook.com/profile.php?id=100006574396023"
+              target="_blank"
+            >
               <FontAwesomeIcon
                 icon={faFacebook}
                 style={IconStyle}
                 className="iconThree"
               />
             </a>
-            <a href="https://github.com/YoniB1995">
+            <a href="https://github.com/YoniB1995" target="_blank">
               <FontAwesomeIcon
                 icon={faGithub}
                 style={IconStyle}
