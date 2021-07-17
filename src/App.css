@@ -56,3 +56,12 @@
 .row_posterLarge:hover {
   transform: scale(1.09);
 }
+
+.iconCardPlay {
+  margin-top: 10px;
+  font-size: 35px;
+}
+.iconCardPlay:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}

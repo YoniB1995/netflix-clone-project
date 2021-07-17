@@ -1,7 +1,7 @@
 import React , {useState} from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee,faPhone , faMailBulk } from '@fortawesome/free-solid-svg-icons'
+import { faCoffee,faPhone , faMailBulk,faPlay } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram , faFacebook , faLinkedin , faGithub } from '@fortawesome/free-brands-svg-icons'
 import { Button } from 'semantic-ui-react'
 import Popup from '../../Popup/Popup'

@@ -1,6 +1,8 @@
 import React , { useState , useEffect , useRef } from 'react'
 import styled from 'styled-components'
 import Rating from '@material-ui/lab/Rating';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay, faPlayCircle } from '@fortawesome/free-solid-svg-icons'
 
 const Body = styled.div` 
 display:flex;
@@ -183,7 +185,7 @@ function Row({title, fetchUrl, isLargeRow,searchHandler,simulateTrue,searchResul
                  <img src={`${moviesUrl}${currentMovies.backdrop_path}`} alt="poster" height="300px" width="100%" />
                  <BannerFade></BannerFade>
                 <h1>{currentMovies.name} <Rating name="customized-10" value={Math.round(currentMovies.vote_average)} max={10} /></h1>
-                
+                <span><FontAwesomeIcon icon={faPlayCircle}  className="iconCardPlay" /></span>
                 <h3>Rating :{currentMovies.vote_average}</h3>
                 <p>{currentMovies.overview}</p>
                

@@ -5,6 +5,8 @@ import Rating from '@material-ui/lab/Rating';
 import Banner from '../../Features/Banner/Banner';
 import Footer from '../../Features/Footer/Footer'
 import { Button ,Input} from '@material-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay, faPlayCircle } from '@fortawesome/free-solid-svg-icons'
 
 const Body = styled.div` 
 display:flex;
@@ -194,7 +196,8 @@ function TopRated({ isLargeRow}) {
                  <img src={`${moviesUrl}${currentMovies.backdrop_path}`} alt="poster" height="300px" width="100%" />
                  <BannerFade></BannerFade>
                 <h1>{currentMovies.title} <Rating name="customized-10" value={Math.round(currentMovies.vote_average)} max={10} /></h1>
-                
+                <span><FontAwesomeIcon icon={faPlayCircle}  className="iconCardPlay" /></span>
+
                 <h3>Rating :{currentMovies.vote_average}</h3>
                 <p>{currentMovies.overview}</p>
               </ModelContent>
