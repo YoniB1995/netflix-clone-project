@@ -21,9 +21,6 @@ const PopupBody = styled.div`
     (min-width: 384px) and (max-width: 767px),
     (min-width: 360px) and (max-width: 767px) {
     height: 100%;
-    position: relative;
-    width: 70%;
-    left: 20px;
   }
 `;
 
@@ -34,6 +31,14 @@ const InsidePop = styled.div`
   max-width: 640px;
   border-radius: 25px;
   background-color: white;
+  @media only screen and (min-width: 414px) and (max-width: 767px),
+    (min-width: 412px) and (max-width: 767px),
+    (min-width: 390px) and (max-width: 767px),
+    (min-width: 428px) and (max-width: 767px),
+    (min-width: 384px) and (max-width: 767px),
+    (min-width: 360px) and (max-width: 767px) {
+    width: 60%;
+  }
 
   button {
     position: absolute;
