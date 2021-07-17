@@ -11,7 +11,6 @@ import { UserProvider } from "../Features/Context";
 import { requests, baseURL, moviesTrending } from "../../apiRequests";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import SideNavComp from "../Features/SideNav/SideNavComp";
-import Home from "../Features/Home";
 import Original from "./OriginalNetflix/Original";
 import TrendingNow from "./TrendingNow/TrendingNow";
 import TopRated from "./TopRated/TopRated";
@@ -73,7 +72,7 @@ function BodyFullPage() {
         <SideNavComp value={setIsContainer} />
         <Switch>
           <Route exact path="/" />
-          <Route path="/home" component={Home} />
+          <Route path="/home" component={BodyFullPage} />
           <Route path="/netflixoriginal" component={Original} />
           <Route path="/trendingnow" component={TrendingNow} />
           <Route path="/toprated" component={TopRated} />
