@@ -94,12 +94,6 @@ export default function Footer() {
       <FooterBody>
         <div className="leftSide">
           {" "}
-          <a
-            href="https://yonib1995.github.io/yonib_website_profile/"
-            target="_blank"
-          >
-            <Button>My Website</Button>
-          </a>
           <Button onClick={() => setButtonPopup(true)}>About Me :)</Button>
           <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
             <h3>About Me</h3>
@@ -113,48 +107,48 @@ export default function Footer() {
               Developer
             </p>
             <br />
-            <p>
-              My Website :{" "}
-              <a
-                href="https://yonib1995.github.io/yonib_website_profile/"
-                target="_blank"
-              >
-                Click Here
-              </a>{" "}
-            </p>
-            <FontAwesomeIcon
-              icon={faInstagram}
-              className="iconOne"
-              style={iconStyle}
-            />
-            <FontAwesomeIcon
-              icon={faLinkedin}
-              className="iconTwo"
-              style={iconStyle}
-            />
-            <FontAwesomeIcon
-              icon={faFacebook}
-              className="iconThree"
-              style={iconStyle}
-            />
-            <FontAwesomeIcon
-              icon={faGithub}
-              className="iconFour"
-              style={iconStyle}
-            />
-            {profileImg}
-          </Popup>
-        </div>
-        <div className="Center">
-          <IconsAlign>
-            <a href="http://">
+
+            <a href="https://www.instagram.com/yonibitew/">
               <FontAwesomeIcon
                 icon={faInstagram}
                 style={IconStyle}
                 className="iconOne"
               />
             </a>
-            <a href="http://">
+            <a href="https://www.linkedin.com/in/yoni-bitew-955b971bb/">
+              <FontAwesomeIcon
+                icon={faLinkedin}
+                style={IconStyle}
+                className="iconTwo"
+              />
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100006574396023">
+              <FontAwesomeIcon
+                icon={faFacebook}
+                style={IconStyle}
+                className="iconThree"
+              />
+            </a>
+            <a href="https://github.com/YoniB1995">
+              <FontAwesomeIcon
+                icon={faGithub}
+                style={IconStyle}
+                className="iconFour"
+              />
+            </a>
+            {profileImg}
+          </Popup>
+        </div>
+        <div className="Center">
+          <IconsAlign>
+            <a href="https://www.instagram.com/yonibitew/">
+              <FontAwesomeIcon
+                icon={faInstagram}
+                style={IconStyle}
+                className="iconOne"
+              />
+            </a>
+            <a href="https://www.linkedin.com/in/yoni-bitew-955b971bb/">
               <FontAwesomeIcon
                 icon={faLinkedin}
                 style={IconStyle}
@@ -163,14 +157,14 @@ export default function Footer() {
             </a>
           </IconsAlign>
           <IconsAlign>
-            <a href="http://">
+            <a href="https://www.facebook.com/profile.php?id=100006574396023">
               <FontAwesomeIcon
                 icon={faFacebook}
                 style={IconStyle}
                 className="iconThree"
               />
             </a>
-            <a href="http://">
+            <a href="https://github.com/YoniB1995">
               <FontAwesomeIcon
                 icon={faGithub}
                 style={IconStyle}
