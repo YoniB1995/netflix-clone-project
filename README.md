@@ -1,4 +1,6 @@
-Featuring :
+<h1>Netflix Clone Project</h1>
+Deployment & Website link : https://yonib1995.github.io/netflix-clone-project/
+-Featuring :
 
 - Interactive Responsive Website for phone users.
 
